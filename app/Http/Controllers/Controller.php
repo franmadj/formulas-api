@@ -14,10 +14,15 @@ class Controller extends BaseController {
         ValidatesRequests;
 
     protected function validationErrorResponse(\Exception $e) {
+
         return response()->json([
-                    'message' => $e->getMessage(),
-                    'errors' => $e->getErrors()->getMessages()
-                        ], 422);
+                    "status" => 500,
+                    "success" => false,
+                    "data" =>
+                    [
+                        'message' => $e->getMessage(),
+                        'errors' => $e->getErrors()->getMessages()
+                    ]], 422);
     }
 
 }

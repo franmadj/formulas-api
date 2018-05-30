@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Provider;
 use Illuminate\Http\Request;
-use App\Events\NewKeywordEvent;
 use Watson\Validating\ValidationException;
 use Flugg\Responder\Facades\Responder;
 use App\Http\Controllers\Controller;
