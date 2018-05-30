@@ -42,15 +42,6 @@ class ProviderController extends Controller {
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Provider  $provider
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Provider $provider) {
-        
-    }
 
     /**
      * Show the form for editing the specified resource.

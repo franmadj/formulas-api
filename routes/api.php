@@ -22,6 +22,6 @@ Route::group(['middleware'=>['auth:api']], function(){
     Route::resource('products', 'ProductController');
     Route::resource('orders', 'OrderController');
     Route::resource('formulas', 'FormulaController');
-    Route::resource('category', 'CategoryController');
+    Route::resource('categories', 'CategoryController');
     
 });

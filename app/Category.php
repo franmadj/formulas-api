@@ -23,4 +23,26 @@ class Category extends Model
     public function formulas(){
         return $this->belongsToMany(Formula::class);
     }
+    
+    public static function make($data) {
+        $category = new self;
+        self::validate($data, $category);
+        $category->fill($data);
+        $category->save();
+        return $category;
+    }
+
+    public static function updateCategory($data, self $category) {
+        self::validate($data, $category);
+        $category->fill($data);
+        $category->save();
+        return $category;
+    }
+
+    private static function validate($data, $category) {
+        $validator = Validator::make($data, $category->rules);
+        if ($validator->fails()) {
+            throw new ValidationException($validator, $category);
+        }
+    }
 }

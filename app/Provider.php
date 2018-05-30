@@ -42,11 +42,9 @@ class Provider extends Model
     }
 
     public static function updateProvider($data, Provider $provider) {
-        
         self::validate($data, $provider);
         $provider->fill($data);
         $provider->save();
-        
         return $provider;
     }
 
