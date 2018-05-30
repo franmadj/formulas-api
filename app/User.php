@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+use Watson\Validating\ValidatingTrait;
+use Watson\Validating\ValidationException;
 
 class User extends Authenticatable
 {
@@ -26,4 +30,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public function formulas(){
+        return $this->hasMany(Formula::class);
+    }
+    
+    public function users(){
+        return $this->hasMany(User::class);
+    }
 }
