@@ -32,4 +32,28 @@ class Provider extends Model
     public function orders(){
         return $this->hasMany(Order::class);
     }
+    
+    public static function make($data) {
+        $provider = new self;
+        self::validate($data, $provider);
+        $provider->fill($data);
+        $provider->save();
+        return $provider;
+    }
+
+    public static function updateProvider($data, Provider $provider) {
+        
+        self::validate($data, $provider);
+        $provider->fill($data);
+        $provider->save();
+        
+        return $provider;
+    }
+
+    private static function validate($data, Provider $provider) {
+        $validator = Validator::make($data, $provider->rules);
+        if ($validator->fails()) {
+            throw new ValidationException($validator, $provider);
+        }
+    }
 }
