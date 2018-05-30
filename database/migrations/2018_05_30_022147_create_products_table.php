@@ -15,6 +15,8 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('provider_id')->unsigned();
+            $table->foreign('provider_id')->references('id')->on('providers')->onDelete('cascade');
             $table->string('name');
             $table->string('code');
             $table->decimal('price', 9,3);
