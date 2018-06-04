@@ -29,7 +29,7 @@ class Formula extends Model
         return $this->belongsToMany(Product::class)->withPivot('quantity');
     }
     
-    public function categories(){
+    public function category(){
         return $this->belongsTo(Category::class);
     }
     
