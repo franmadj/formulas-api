@@ -21,7 +21,7 @@ class Category extends Model
     ];
     
     public function formulas(){
-        return $this->belongsToMany(Formula::class);
+        return $this->hasMany(Formula::class);
     }
     
     public static function make($data) {
